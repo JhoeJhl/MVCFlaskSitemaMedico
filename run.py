@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, redirect, url_for
 import os
 #Importacion de controladores
 from controllers import MedicoController
@@ -27,7 +27,7 @@ def inject_active_path():
 
 @app.route('/')
 def home():
-    return "<h1> Sistema de Gestión de Clínica Médica </h1>"
+    return redirect(url_for('medico.index'))
 
 
 if __name__ == '__main__':
