@@ -10,7 +10,7 @@ class Paciente(db.Model):
     telefono = db.Column(db.String(200), nullable = False)
 
     #Relacion con consulta 1:N
-    consultas = db.relationship('Consulta', back_populates='paciente')
+    consultas = db.relationship('Consulta', back_populates='paciente', cascade = 'all, delete')
 
 
     #Metodo constructor

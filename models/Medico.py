@@ -10,7 +10,7 @@ class Medico(db.Model):
     correo = db.Column(db.String(200), nullable = False)
 
     #Relacion con consultas
-    consultas = db.relationship('Consulta', back_populates='medico')
+    consultas = db.relationship('Consulta', back_populates='medico', cascade = 'all, delete')
 
     #Metodo constructor
     def __init__ (self, nombre, especialidad, telefono, correo):
