@@ -3,7 +3,7 @@ from flask import Flask, request
 #Importacion de controladores
 from controllers import MedicoController
 from controllers import PacienteController
-# from controllers import ConsultasController 
+from controllers import ConsultaController 
 
 from database import db
 
@@ -16,6 +16,7 @@ db.init_app(app)
 
 app.register_blueprint(MedicoController.medico_bp)
 app.register_blueprint(PacienteController.paciente_bp)
+app.register_blueprint(ConsultaController.consulta_bp)
 
 
 @app.context_processor

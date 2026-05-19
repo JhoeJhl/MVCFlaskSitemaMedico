@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %} Editar Consulta {% endblock %} 
+
+{% block content %}
+<br>
+<h1>Actualizar Consulta</h1>
+
+<form action="{{ url_for('consulta.edit', id_consulta=consulta.id_consulta) }}" method="POST">
+   <div class="mb-3">
+    <label for="" class="form-label">Fecha</label>
+    <input type="date" class="form-control" name="fecha" value="{{consulta.fecha}}" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Diagnostico</label>
+    <input type="text" class="form-control" name="diagnostico" value="{{consulta.diagnostico}}" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Tratamiento</label>
+    <input type="text" class="form-control" name="tratamiento" value="{{consulta.tratamiento}}" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Medico</label>
+    <select name="id_medico" class="form-control">
+        <option value="">Seleccione un Medico</option>
+        {% for medico in medicos %}
+            <option value="{{medico.id_medico}}" {% if id_medico == consulta.id_medico %} selected {% endif %}>{{medico.nombre}}</option>
+        {% endfor %}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Paciente</label>
+    <select name="id_paciente" class="form-control">
+        <option>Seleccion un Paciente</option>
+        {% for paciente in pacientes %}
+            <option value="{{paciente.id_paciente}}"{% if id_paciente == consulta.id_paciente %} selected {% endif %} >{{paciente.nombre}}</option>
+        {% endfor %}
+    </select>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Registrar Venta</button>
+
+</form>
+{% endblock %}
