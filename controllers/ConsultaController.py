@@ -13,7 +13,13 @@ consulta_bp = Blueprint('consulta', __name__,url_prefix="/consultas")
 @consulta_bp.route("/")
 def index():
     #Recupera todos los registro de consultas
-    consultas = Consulta.get_all()
+    fecha = request.args.get('fecha')
+
+    if fecha:
+        consultas = Consulta.query.filter_by(fecha=fecha).all()
+    else: 
+        consultas = Consulta.get_all()
+        
     return ConsultaView.list(consultas)
 
 @consulta_bp.route("/create", methods=['GET','POST'])
