@@ -25,8 +25,8 @@ class Medico(db.Model):
     def get_all():
         return Medico.query.all()
 
-    def get_by_id(id):
-        return Medico.query.get(id)
+    def get_by_id(id_medico):
+        return Medico.query.get(id_medico)
 
     def update(self, nombre=None, especialidad=None, telefono=None, correo=None):
         if nombre and especialidad and telefono and correo:
