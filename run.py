@@ -2,7 +2,7 @@ from flask import Flask, request
 
 #Importacion de controladores
 from controllers import MedicoController
-# from controllers import PacientesController
+from controllers import PacienteController
 # from controllers import ConsultasController 
 
 from database import db
@@ -15,6 +15,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 
 app.register_blueprint(MedicoController.medico_bp)
+app.register_blueprint(PacienteController.paciente_bp)
 
 
 @app.context_processor

@@ -32,11 +32,11 @@ def edit(id_medico):
         nombre = request.form['nombre']
         especialidad = request.form['especialidad']
         telefono = request.form['telefono']
-        email = request.form['email']
+        correo = request.form['email']
         
  
         #actualizar
-        medico.update(nombre=nombre,especialidad=especialidad, telefono=telefono, email=email)
+        medico.update(nombre=nombre,especialidad=especialidad, telefono=telefono, correo=correo)
         return redirect(url_for('medico.index'))
 
     return MedicoView.edit(medico)
